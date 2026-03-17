@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -17,8 +18,8 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container flex items-center justify-between h-16">
-        <a href="#inicio" className="text-lg font-semibold text-primary tracking-tight">
-          Clínica Argelia Ferrero
+        <a href="#inicio" className="flex items-center gap-2">
+          <img src={logo} alt="Clínica Argelia Ferrero" className="h-10 w-auto" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-1">
