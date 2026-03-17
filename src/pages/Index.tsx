@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import StickyContactBar from "@/components/StickyContactBar";
 import Footer from "@/components/Footer";
+import WhatsAppChatButton from "@/components/WhatsAppChatButton";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       </main>
       <Footer />
       <StickyContactBar />
+      <WhatsAppChatButton />
     </div>
   );
 };
