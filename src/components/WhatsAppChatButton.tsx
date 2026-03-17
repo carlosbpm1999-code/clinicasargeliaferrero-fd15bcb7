@@ -38,7 +38,7 @@ const WhatsAppChatButton = () => {
           >
             <div className="bg-[#25D366] px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <MessageCircle className="w-5 h-5 text-white" />
+                <WhatsAppIcon className="w-5 h-5" />
                 <span className="text-sm font-semibold text-white">WhatsApp</span>
               </div>
               <button onClick={() => setOpen(false)} className="text-white/80 hover:text-white">
