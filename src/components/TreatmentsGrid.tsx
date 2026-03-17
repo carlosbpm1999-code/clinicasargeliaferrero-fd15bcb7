@@ -57,17 +57,23 @@ const TreatmentsGrid = () => {
               }}
               className="group cursor-pointer"
             >
-              <div className="rounded-lg overflow-hidden shadow-card transition-shadow duration-300 group-hover:shadow-card-hover bg-card">
+              <div className="relative rounded-xl overflow-hidden shadow-card bg-card transition-all duration-500 group-hover:shadow-card-hover group-hover:-translate-y-2">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={t.image}
                     alt={t.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-[0.7]"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0">
+                    <span className="text-primary-foreground text-sm font-semibold tracking-wide px-4 py-2 rounded-full border border-primary-foreground/30 backdrop-blur-sm">
+                      Ver más
+                    </span>
+                  </div>
                 </div>
-                <div className="p-3 lg:p-4">
-                  <h3 className="text-sm font-semibold text-foreground text-center leading-tight">
+                <div className="p-3 lg:p-4 transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <h3 className="text-sm font-semibold text-center leading-tight transition-colors duration-300 group-hover:text-primary-foreground">
                     {t.name}
                   </h3>
                 </div>

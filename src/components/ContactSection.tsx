@@ -46,11 +46,11 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex flex-col items-center p-6 rounded-lg shadow-card hover:shadow-card-hover transition-shadow bg-card"
+              className="flex flex-col items-center p-6 rounded-xl shadow-card bg-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2 hover:bg-primary group"
             >
-              <item.icon className="w-6 h-6 text-primary mb-3" />
-              <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-              <p className="text-sm text-muted-foreground text-center whitespace-pre-line">{item.text}</p>
+              <item.icon className="w-6 h-6 text-primary mb-3 transition-colors duration-300 group-hover:text-primary-foreground" />
+              <h3 className="font-semibold text-foreground mb-1 transition-colors duration-300 group-hover:text-primary-foreground">{item.title}</h3>
+              <p className="text-sm text-muted-foreground text-center whitespace-pre-line transition-colors duration-300 group-hover:text-primary-foreground/80">{item.text}</p>
             </motion.a>
           ))}
         </div>

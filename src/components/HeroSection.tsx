@@ -18,12 +18,12 @@ const HeroSection = () => {
             Cuidando sonrisas en Mataró desde 1990. Su centro dental de confianza con más de 30 años de formación continuada a su servicio.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg" asChild>
+            <Button size="lg" asChild className="transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25">
               <a href="https://wa.me/34683606896" target="_blank" rel="noopener noreferrer">
                 Pedir Cita
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="outline" asChild className="transition-all duration-300 hover:scale-105">
               <a href="#tratamientos">Ver Tratamientos</a>
             </Button>
           </div>
