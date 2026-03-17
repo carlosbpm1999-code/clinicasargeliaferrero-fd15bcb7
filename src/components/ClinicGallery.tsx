@@ -4,12 +4,16 @@ import imgRoomKids from "@/assets/clinic-room-kids.png";
 import imgRoom from "@/assets/clinic-room.png";
 import imgOffice from "@/assets/clinic-office.png";
 import imgReception from "@/assets/clinic-reception.png";
+import imgWaiting from "@/assets/clinic-waiting.png";
+import imgRx from "@/assets/clinic-rx.png";
 
 const images = [
   { src: imgReception, alt: "Recepción de la clínica", span: "md:col-span-2 md:row-span-2" },
   { src: imgHallway, alt: "Pasillo y zonas de la clínica", span: "" },
   { src: imgRoomKids, alt: "Sala de odontopediatría", span: "" },
   { src: imgRoom, alt: "Gabinete dental", span: "md:col-span-2" },
+  { src: imgWaiting, alt: "Sala de espera", span: "" },
+  { src: imgRx, alt: "Sala Rx y gabinetes", span: "md:col-span-2" },
   { src: imgOffice, alt: "Despacho de consultas", span: "" },
 ];
 
