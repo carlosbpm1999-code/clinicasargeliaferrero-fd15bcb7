@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import TreatmentsGrid from "@/components/TreatmentsGrid";
 import AboutSection from "@/components/AboutSection";
+import ClinicGallery from "@/components/ClinicGallery";
 import ContactSection from "@/components/ContactSection";
 import StickyContactBar from "@/components/StickyContactBar";
 import Footer from "@/components/Footer";
@@ -15,6 +16,7 @@ const Index = () => {
         <HeroSection />
         <TreatmentsGrid />
         <AboutSection />
+        <ClinicGallery />
         <ContactSection />
       </main>
       <Footer />
