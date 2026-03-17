@@ -78,7 +78,7 @@ const WhatsAppChatButton = () => {
         className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20BD5A] transition-colors flex items-center justify-center ml-auto"
         aria-label="Abrir chat de WhatsApp"
       >
-        {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {open ? <X className="w-6 h-6" /> : <WhatsAppIcon className="w-6 h-6" />}
       </button>
     </div>
   );
