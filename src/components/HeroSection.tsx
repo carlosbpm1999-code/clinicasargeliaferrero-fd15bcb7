@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import heroImg from "@/assets/clinic-reception.png";
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="relative bg-muted">
-      <div className="container py-20 lg:py-32">
+    <section id="inicio" className="relative min-h-[70vh] flex items-center overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src={heroImg}
+          alt="Recepción Clínica Argelia Ferrero"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
+      </div>
+      <div className="container relative z-10 py-20 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,7 +32,7 @@ const HeroSection = () => {
                 Pedir Cita
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild className="transition-all duration-300 hover:scale-105">
+            <Button size="lg" variant="outline" asChild className="transition-all duration-300 hover:scale-105 bg-background/50 backdrop-blur-sm">
               <a href="#tratamientos">Ver Tratamientos</a>
             </Button>
           </div>
