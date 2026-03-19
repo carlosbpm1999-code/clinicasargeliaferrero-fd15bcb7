@@ -3,10 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroImg1 from "@/assets/hero-dental-bg.jpg";
 import heroImg2 from "@/assets/hero-dental-bg-2.jpg";
-import heroImg3 from "@/assets/hero-dental-bg-3.jpg";
 import heroImg4 from "@/assets/hero-dental-bg-4.jpg";
 
-const images = [heroImg1, heroImg2, heroImg3, heroImg4];
+const images = [heroImg1, heroImg2, heroImg4];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
