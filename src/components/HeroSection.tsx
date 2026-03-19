@@ -1,18 +1,59 @@
-import { motion } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-dental-bg.jpg";
+import heroImg1 from "@/assets/hero-dental-bg.jpg";
+import heroImg2 from "@/assets/hero-dental-bg-2.jpg";
+import heroImg3 from "@/assets/hero-dental-bg-3.jpg";
+import heroImg4 from "@/assets/hero-dental-bg-4.jpg";
+
+const images = [heroImg1, heroImg2, heroImg3, heroImg4];
 
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section id="inicio" className="relative min-h-[70vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Recepción Clínica Argelia Ferrero"
-          className="w-full h-full object-cover"
+      {/* Slideshow background */}
+      <AnimatePresence mode="popLayout">
+        <motion.img
+          key={current}
+          src={images[current]}
+          alt="Clínica dental Argelia Ferrero"
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
+      </AnimatePresence>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-500 ${
+              i === current ? "w-8 bg-primary" : "w-2 bg-foreground/30"
+            }`}
+            aria-label={`Ir a imagen ${i + 1}`}
+          />
+        ))}
       </div>
+
+      {/* Content */}
       <div className="container relative z-10 py-20 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
