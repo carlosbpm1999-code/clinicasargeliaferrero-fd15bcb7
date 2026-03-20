@@ -19,7 +19,7 @@ const navItems = [
   { label: "Inicio", href: "#inicio" },
   { label: "Tratamientos", href: "#tratamientos", dropdown: true },
   { label: "Financiación", href: "#financiacion" },
-  { label: "Equipo", href: "#equipo" },
+  { label: "Equipo", href: "/equipo", isRoute: true },
   { label: "Nuestro Centro", href: "#centro" },
   { label: "Contacto", href: "#contacto" },
   { label: "Noticias", href: "#noticias" },
