@@ -96,6 +96,11 @@ const staff: Doctor[] = [
     role: "Auxiliar administrativa y dental",
     type: "staff",
   },
+  {
+    name: "Clara Serrano Jiménez",
+    role: "Auxiliar dental",
+    type: "staff",
+  },
 ];
 
 const getInitials = (name: string) => {
