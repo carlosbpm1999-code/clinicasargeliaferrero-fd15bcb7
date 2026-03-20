@@ -96,6 +96,11 @@ const staff: Doctor[] = [
     role: "Auxiliar administrativa y dental",
     type: "staff",
   },
+  {
+    name: "Clara Serrano Jiménez",
+    role: "Auxiliar dental",
+    type: "staff",
+  },
 ];
 
 const getInitials = (name: string) => {
@@ -199,22 +204,18 @@ const Equipo = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative py-20 lg:py-28 bg-muted overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+        <section className="relative py-10 lg:py-14 bg-muted overflow-hidden">
           <div className="container relative">
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-2xl mx-auto text-center"
             >
-              <p className="text-5xl lg:text-7xl font-bold text-primary/10 font-display mb-4">
-                Equipo
-              </p>
-              <h1 className="text-3xl lg:text-5xl font-bold text-foreground font-display mb-6" style={{ lineHeight: "1.1" }}>
+              <h1 className="text-2xl lg:text-4xl font-bold text-foreground font-display mb-3" style={{ lineHeight: "1.1" }}>
                 Profesionales a tu servicio
               </h1>
-              <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mx-auto">
+              <p className="text-muted-foreground text-base leading-relaxed max-w-xl mx-auto">
                 Más de 30 años de experiencia avalan a nuestro equipo multidisciplinar, comprometido con tu salud dental.
               </p>
             </motion.div>
@@ -222,7 +223,7 @@ const Equipo = () => {
         </section>
 
         {/* Doctors */}
-        <section className="py-20 lg:py-28">
+        <section className="py-12 lg:py-16">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -248,7 +249,7 @@ const Equipo = () => {
         </section>
 
         {/* Staff */}
-        <section className="py-20 lg:py-28 bg-muted">
+        <section className="py-12 lg:py-16 bg-muted">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
