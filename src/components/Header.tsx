@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const treatments = [
