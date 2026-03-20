@@ -2,19 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-
-const treatments = [
-  "Implantes Dentales",
-  "Implantología Guiada 3D",
-  "Ortodoncia Damon®",
-  "Ortodoncia Spark®",
-  "Ortodoncia Infantil",
-  "Odontopediatría",
-  "Periodoncia",
-  "Estética Dental",
-  "Blanqueamiento",
-  "Prótesis",
-];
+import { treatments } from "@/data/treatments";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -77,15 +65,15 @@ const Header = () => {
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64">
                     <div className="bg-background border border-border rounded-xl shadow-lg overflow-hidden animate-fade-in">
                       {treatments.map((t) => (
-                        <a
-                          key={t}
-                          href="#tratamientos"
+                        <Link
+                          key={t.slug}
+                          to={`/tratamientos/${t.slug}`}
                           onClick={() => setDropdownOpen(false)}
                           className="group/item flex items-center px-4 py-2.5 text-sm text-muted-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:pl-6"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3 transition-all duration-300 group-hover/item:bg-primary-foreground group-hover/item:scale-150" />
-                          {t}
-                        </a>
+                          {t.name}
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -143,14 +131,14 @@ const Header = () => {
                   {mobileDropdownOpen && (
                     <div className="ml-4 border-l-2 border-primary/20 pl-3 mb-1">
                       {treatments.map((t) => (
-                        <a
-                          key={t}
-                          href="#tratamientos"
+                        <Link
+                          key={t.slug}
+                          to={`/tratamientos/${t.slug}`}
                           onClick={() => { setMobileOpen(false); setMobileDropdownOpen(false); }}
                           className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
-                          {t}
-                        </a>
+                          {t.name}
+                        </Link>
                       ))}
                     </div>
                   )}
