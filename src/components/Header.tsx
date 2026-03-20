@@ -155,6 +155,15 @@ const Header = () => {
                     </div>
                   )}
                 </div>
+              ) : (item as any).isRoute ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
               ) : (
                 <a
                   key={item.href}
