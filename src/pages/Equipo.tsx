@@ -249,7 +249,7 @@ const Equipo = () => {
         </section>
 
         {/* Staff */}
-        <section className="py-20 lg:py-28 bg-muted">
+        <section className="py-12 lg:py-16 bg-muted">
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
