@@ -7,7 +7,7 @@ import { treatments } from "@/data/treatments";
 const navItems = [
   { label: "Inicio", href: "/", isRoute: true },
   { label: "Tratamientos", href: "#tratamientos", dropdown: true },
-  { label: "Financiación", href: "#financiacion" },
+  { label: "Financiación", href: "/financiacion", isRoute: true },
   { label: "Equipo", href: "/equipo", isRoute: true },
   { label: "Nuestro Centro", href: "#centro" },
   { label: "Contacto", href: "#contacto" },
