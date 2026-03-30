@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 import { treatments } from "@/data/treatments";
 
 const navItems = [
-  { label: "Inicio", href: "#inicio" },
+  { label: "Inicio", href: "/", isRoute: true },
   { label: "Tratamientos", href: "#tratamientos", dropdown: true },
   { label: "Financiación", href: "#financiacion" },
   { label: "Equipo", href: "/equipo", isRoute: true },
@@ -39,9 +39,9 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container flex items-center justify-between h-20">
-        <a href="#inicio" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Clínica Argelia Ferrero" className="h-16 lg:h-20 w-auto" />
-        </a>
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) =>
