@@ -7,6 +7,8 @@ import Index from "./pages/Index.tsx";
 import Equipo from "./pages/Equipo.tsx";
 import Financiacion from "./pages/Financiacion.tsx";
 import Tratamiento from "./pages/Tratamiento.tsx";
+import NuestroCentro from "./pages/NuestroCentro.tsx";
+import Contacto from "./pages/Contacto.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
