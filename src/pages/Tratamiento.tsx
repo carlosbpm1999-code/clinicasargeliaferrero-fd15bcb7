@@ -94,15 +94,9 @@ const Tratamiento = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative h-[50vh] min-h-[360px] max-h-[500px] overflow-hidden">
-          <img
-            src={treatment.image}
-            alt={treatment.name}
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-transparent" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="container pb-10">
+        <section className="py-10 lg:py-14">
+          <div className="container">
+            <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-12 items-end">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -110,20 +104,33 @@ const Tratamiento = () => {
               >
                 <Link
                   to="/#tratamientos"
-                  className="inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white mb-4 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-5 transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Volver a tratamientos
                 </Link>
                 <h1
-                  className="text-3xl lg:text-5xl font-bold text-white font-display"
+                  className="text-3xl lg:text-5xl font-bold text-foreground font-display"
                   style={{ lineHeight: "1.1" }}
                 >
                   {treatment.name}
                 </h1>
-                <p className="mt-3 text-white/80 text-lg max-w-xl">
+                <p className="mt-4 text-muted-foreground text-lg max-w-xl leading-relaxed">
                   {treatment.shortDesc}
                 </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="relative overflow-hidden rounded-3xl border border-border bg-muted shadow-sm max-w-3xl lg:ml-auto"
+              >
+                <img
+                  src={treatment.image}
+                  alt={treatment.name}
+                  className="w-full h-[260px] md:h-[340px] lg:h-[380px] object-cover object-center"
+                />
               </motion.div>
             </div>
           </div>
