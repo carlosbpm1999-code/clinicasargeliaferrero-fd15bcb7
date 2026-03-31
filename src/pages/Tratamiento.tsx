@@ -94,11 +94,11 @@ const Tratamiento = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="relative h-[40vh] min-h-[320px] overflow-hidden">
+        <section className="relative h-[50vh] min-h-[360px] max-h-[500px] overflow-hidden">
           <img
             src={treatment.image}
             alt={treatment.name}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/40 to-transparent" />
           <div className="absolute inset-0 flex items-end">

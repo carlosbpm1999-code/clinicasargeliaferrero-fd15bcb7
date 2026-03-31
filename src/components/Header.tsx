@@ -9,8 +9,8 @@ const navItems = [
   { label: "Tratamientos", href: "#tratamientos", dropdown: true },
   { label: "Financiación", href: "/financiacion", isRoute: true },
   { label: "Equipo", href: "/equipo", isRoute: true },
-  { label: "Nuestro Centro", href: "#centro" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Nuestro Centro", href: "/nuestro-centro", isRoute: true },
+  { label: "Contacto", href: "/contacto", isRoute: true },
   { label: "Noticias", href: "#noticias" },
 ];
 
