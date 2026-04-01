@@ -8,6 +8,8 @@ import imgProtesis from "@/assets/protesis.jpg";
 import imgBlanqueamiento from "@/assets/blanqueamiento.jpg";
 import imgEstetica from "@/assets/estetica-dental.jpg";
 import imgImplantes from "@/assets/implantes-dentales.jpg";
+import imgRadiologia from "@/assets/ortopantomografia.png";
+import imgClinicRx from "@/assets/clinic-rx.png";
 
 export interface ContentBlock {
   type: "paragraph" | "heading" | "list" | "highlight" | "cta";
