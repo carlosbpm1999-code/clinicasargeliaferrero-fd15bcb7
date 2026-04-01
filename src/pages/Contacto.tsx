@@ -83,7 +83,11 @@ const Contacto = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.35, delay: i * 0.08 }}
-                      className="group flex items-start gap-4 rounded-2xl border border-border bg-background p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5"
+                      className={`group flex items-start gap-4 rounded-2xl border border-border bg-background p-4 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
+                        item.title === "Llámanos" ? "hover:border-blue-400/50" :
+                        item.title === "WhatsApp" ? "hover:border-emerald-400/50" :
+                        "hover:border-violet-400/50"
+                      }`}
                     >
                       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-muted text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                         <item.icon className="h-5 w-5" />
