@@ -32,6 +32,8 @@ export interface Treatment {
   description: string;
   benefits: string[];
   sections?: TreatmentSection[];
+  isExternalLink?: boolean;
+  externalHref?: string;
 }
 
 export const treatments: Treatment[] = [
