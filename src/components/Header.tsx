@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { treatments } from "@/data/treatments";
 
+const serviciosItems = [
+  { label: "Ortopantomografía y Telerradiografía", href: "/tratamientos/radiologia-digital" },
+  { label: "Financiación", href: "/financiacion" },
+];
+
 const navItems = [
   { label: "Inicio", href: "/", isRoute: true },
-  { label: "Tratamientos", href: "#tratamientos", dropdown: true },
-  { label: "Financiación", href: "/financiacion", isRoute: true },
+  { label: "Tratamientos", href: "#tratamientos", dropdown: "treatments" },
+  { label: "Servicios", href: "#servicios", dropdown: "servicios" },
   { label: "Equipo", href: "/equipo", isRoute: true },
   { label: "Nuestro Centro", href: "/nuestro-centro", isRoute: true },
   { label: "Contacto", href: "/contacto", isRoute: true },
