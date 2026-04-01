@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { treatments } from "@/data/treatments";
 
+const serviciosItems = [
+  { label: "Ortopantomografía y Telerradiografía", href: "/tratamientos/radiologia-digital" },
+  { label: "Financiación", href: "/financiacion" },
+];
+
 const navItems = [
   { label: "Inicio", href: "/", isRoute: true },
-  { label: "Tratamientos", href: "#tratamientos", dropdown: true },
-  { label: "Financiación", href: "/financiacion", isRoute: true },
+  { label: "Tratamientos", href: "#tratamientos", dropdown: "treatments" },
+  { label: "Servicios", href: "#servicios", dropdown: "servicios" },
   { label: "Equipo", href: "/equipo", isRoute: true },
   { label: "Nuestro Centro", href: "/nuestro-centro", isRoute: true },
   { label: "Contacto", href: "/contacto", isRoute: true },
@@ -16,18 +21,17 @@ const navItems = [
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const openDropdown = () => {
+  const handleMouseEnter = (key: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
+    setOpenDropdown(key);
   };
 
-  const closeDropdown = () => {
-    timeoutRef.current = setTimeout(() => setDropdownOpen(false), 150);
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
   useEffect(() => {
@@ -35,6 +39,16 @@ const Header = () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
+
+  const getDropdownItems = (key: string) => {
+    if (key === "treatments") {
+      return treatments
+        .filter((t) => t.slug !== "radiologia-digital")
+        .map((t) => ({ label: t.name, href: `/tratamientos/${t.slug}` }));
+    }
+    if (key === "servicios") return serviciosItems;
+    return [];
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -48,31 +62,29 @@ const Header = () => {
             item.dropdown ? (
               <div
                 key={item.href}
-                ref={dropdownRef}
                 className="relative"
-                onMouseEnter={openDropdown}
-                onMouseLeave={closeDropdown}
+                onMouseEnter={() => handleMouseEnter(item.dropdown)}
+                onMouseLeave={handleMouseLeave}
               >
-                <a
-                  href={item.href}
-                  className="relative flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-primary after:rounded-full after:transition-all after:duration-300 hover:after:w-2/3"
+                <span
+                  className="relative flex items-center gap-1 px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 cursor-default after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-primary after:rounded-full after:transition-all after:duration-300 hover:after:w-2/3"
                 >
                   {item.label}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`} />
-                </a>
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${openDropdown === item.dropdown ? "rotate-180" : ""}`} />
+                </span>
 
-                {dropdownOpen && (
+                {openDropdown === item.dropdown && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64">
                     <div className="bg-background border border-border rounded-xl shadow-lg overflow-hidden animate-fade-in">
-                      {treatments.map((t) => (
+                      {getDropdownItems(item.dropdown).map((sub) => (
                         <Link
-                          key={t.slug}
-                          to={`/tratamientos/${t.slug}`}
-                          onClick={() => setDropdownOpen(false)}
+                          key={sub.href}
+                          to={sub.href}
+                          onClick={() => setOpenDropdown(null)}
                           className="group/item flex items-center px-4 py-2.5 text-sm text-muted-foreground transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:pl-6"
                         >
                           <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3 transition-all duration-300 group-hover/item:bg-primary-foreground group-hover/item:scale-150" />
-                          {t.name}
+                          {sub.label}
                         </Link>
                       ))}
                     </div>
@@ -122,22 +134,22 @@ const Header = () => {
               item.dropdown ? (
                 <div key={item.href}>
                   <button
-                    onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                    onClick={() => setMobileDropdown(mobileDropdown === item.dropdown ? null : (item.dropdown || null))}
                     className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item.label}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileDropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${mobileDropdown === item.dropdown ? "rotate-180" : ""}`} />
                   </button>
-                  {mobileDropdownOpen && (
+                  {mobileDropdown === item.dropdown && (
                     <div className="ml-4 border-l-2 border-primary/20 pl-3 mb-1">
-                      {treatments.map((t) => (
+                      {getDropdownItems(item.dropdown).map((sub) => (
                         <Link
-                          key={t.slug}
-                          to={`/tratamientos/${t.slug}`}
-                          onClick={() => { setMobileOpen(false); setMobileDropdownOpen(false); }}
+                          key={sub.href}
+                          to={sub.href}
+                          onClick={() => { setMobileOpen(false); setMobileDropdown(null); }}
                           className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
-                          {t.name}
+                          {sub.label}
                         </Link>
                       ))}
                     </div>
