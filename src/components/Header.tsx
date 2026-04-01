@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 import { treatments } from "@/data/treatments";
 
 const serviciosItems = [
-  { label: "Ortopantomografía y Telerradiografía", href: "/tratamientos/radiologia-digital" },
+  { label: "Ortopantomografía y Telerradiografía", href: "/servicios/radiologia-digital" },
   { label: "Financiación", href: "/financiacion" },
 ];
 
