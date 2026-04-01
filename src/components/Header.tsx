@@ -43,7 +43,6 @@ const Header = () => {
   const getDropdownItems = (key: string) => {
     if (key === "treatments") {
       return treatments
-        .filter((t) => t.slug !== "radiologia-digital")
         .map((t) => ({ label: t.name, href: `/tratamientos/${t.slug}` }));
     }
     if (key === "servicios") return serviciosItems;
