@@ -5,7 +5,7 @@ import logo from "@/assets/logo.png";
 import { treatments } from "@/data/treatments";
 
 const serviciosItems = [
-  { label: "Ortopantomografía y Telerradiografía", href: "/tratamientos/radiologia-digital" },
+  { label: "Ortopantomografía y Telerradiografía", href: "/servicios/radiologia-digital" },
   { label: "Financiación", href: "/financiacion" },
 ];
 
@@ -43,7 +43,6 @@ const Header = () => {
   const getDropdownItems = (key: string) => {
     if (key === "treatments") {
       return treatments
-        .filter((t) => t.slug !== "radiologia-digital")
         .map((t) => ({ label: t.name, href: `/tratamientos/${t.slug}` }));
     }
     if (key === "servicios") return serviciosItems;
