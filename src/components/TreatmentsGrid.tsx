@@ -35,7 +35,7 @@ const TreatmentsGrid = () => {
               }}
               className="group cursor-pointer"
             >
-              <Link to={`/tratamientos/${t.slug}`}>
+              <Link to={t.isExternalLink && t.externalHref ? t.externalHref : `/tratamientos/${t.slug}`}>
                 <div className="relative rounded-xl overflow-hidden shadow-card bg-card transition-all duration-500 group-hover:shadow-card-hover group-hover:-translate-y-2">
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
